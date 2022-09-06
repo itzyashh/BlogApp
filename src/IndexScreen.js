@@ -4,15 +4,15 @@ import BlogContext from './context/BlogContext'
 
 const IndexScreen = () => {
     const { data, addBlogPost } = useContext(BlogContext)
-    // console.log(first);
+    console.log(data);
     return (
         <View>
-            <Button title="Add Blog Post" onClick={addBlogPost} />
+            <Button title="Add Blog Post" onPress={addBlogPost} />
             <FlatList
-                keyExtractor={(blogPost) => blogPost.title}
                 data={data}
+                keyExtractor={(blogPosts) => blogPosts.title}
                 renderItem={({ item }) => {
-                    return <Text>{item.title}</Text>
+                    return (<Text>{item.title}</Text>)
                 }}
             />
         </View>
